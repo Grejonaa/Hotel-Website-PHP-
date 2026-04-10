@@ -1,7 +1,7 @@
 <header>
     <div class="content flex_space">
         <div class="logo">
-            <img src="../images/logo.jpeg" alt="">
+            <img src="./images/logo.jpeg" alt="">
         </div>
         <div class="navlinks">
             <ul id="menulist">
