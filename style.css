@@ -710,3 +710,8 @@ footer label{
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+/*Rooms*/
+   .rooms .container{
+            margin-bottom: 150px;
+    }
