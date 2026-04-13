@@ -3,7 +3,7 @@
         <div class="content">
             <div class="owl-carousel owl-theme">
                 <div class="item">
-                    <img src="images/banner2.jpeg" alt="">
+                    <img src="/Hotel/images/banner2.jpeg" alt="">
                     <div class="text">
                         <h1>Spend Your Holiday</h1>
                         <p>
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="images/banner1.webp" alt="">
+                    <img src="/Hotel/images/banner1.webp" alt="">
                     <div class="text">
                         <h1>Spend Your Holiday</h1>
                         <p>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="images/banner3.avif" alt="">
+                    <img src="/Hotel/images/banner3.avif" alt="">
                     <div class="text">
                         <h1>Spend Your Holiday</h1>
                         <p>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="images/banner4.avif" alt="">
+                    <img src="/Hotel/images/banner4.avif" alt="">
                     <div class="text">
                         <h1>Spend Your Holiday</h1>
                         <p>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="images/banner55.avif" alt="">
+                    <img src="/Hotel/images/banner55.avif" alt="">
                     <div class="text">
                         <h1>Spend Your Holiday</h1>
                         <p>
