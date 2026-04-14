@@ -1,3 +1,70 @@
+<?php
+session_start();
+
+$message = "";
+$today = date("Y-m-d");
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $namesurname = htmlspecialchars(trim($_POST['name_surname']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $arrival = $_POST['arrival_date'];
+    $departure = $_POST['departure_date'];
+
+    $nrAdults = (int)$_POST['adults'];
+    $nrChildren = (int)$_POST['children'];
+    $nrRooms = (int)$_POST['nrrooms'];
+
+    $room_type = $_POST['room_type'];
+    $payment_method = $_POST['payment_method'];
+
+    
+    setcookie("username", $namesurname, time() + 3600 * 24 * 30);
+
+  
+    if (!preg_match("/^[\w\.-]+@[\w\.-]+\.[a-zA-Z]{2,}$/", $email)) {
+        $message = "<p style='color:red;text-align:center;'>Email invalid!</p>";
+    }
+    elseif (!preg_match("/^[a-zA-Z\s]+$/", $namesurname)) {
+        $message = "<p style='color:red;text-align:center;'>Emri duhet te përmbaje vetem shkronja!</p>";
+    }
+    elseif ($nrRooms > 5 || $nrRooms < 1) {
+        $message = "<p style='color:red;text-align:center;'>Maksimumi 5 dhoma!</p>";
+    }
+    elseif ($nrAdults < 1) {
+        $message = "<p style='color:red;text-align:center;'>Duhet te kete te pakten 1 adult!</p>";
+    }
+    else {
+
+        $arrivalDate = DateTime::createFromFormat('Y-m-d', $arrival);
+        $departureDate = DateTime::createFromFormat('Y-m-d', $departure);
+        $todayDate = new DateTime($today);
+
+        if (!$arrivalDate || !$departureDate) {
+            $message = "<p style='color:red;text-align:center;'>Datat nuk janë valide!</p>";
+        }
+        elseif ($arrivalDate < $todayDate) {
+            $message = "<p style='color:red;text-align:center;'>Data e ardhjes duhet te jete nga sot!</p>";
+        }
+        elseif ($departureDate <= $arrivalDate) {
+            $message = "<p style='color:red;text-align:center;'>Data e largimit duhet te jete pas ardhjes!</p>";
+        }
+
+    }
+
+
+
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
