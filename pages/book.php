@@ -107,6 +107,29 @@ class Payment {
                     $totalprice = $nrRooms * $numberOfNights * $pricePerNight;
 
                     $payment = new Payment($payment_method);
+                     $_SESSION['last_booking'] = [
+                    "name" => $namesurname,
+                    "email" => $email,
+                    "arrival" => $arrival,
+                    "departure" => $departure,
+                    "rooms" => $nrRooms,
+                    "type" => $room_type,
+                    "payment" => $payment->getMethod(),
+                    "total" => $totalprice
+                ];
+
+                $message = "
+                <div class='overview'>
+                    <h3>Rezervimi u krye me sukses!</h3>
+                    <p><strong>Emri:</strong> $namesurname</p>
+                    <p><strong>Email:</strong> $email</p>
+                    <p><strong>Netë:</strong> $numberOfNights</p>
+                    <p><strong>Dhomat:</strong> $nrRooms</p>
+                    <p><strong>Tipi:</strong> $room_type</p>
+                    <p><strong>Pagesa:</strong> ".$payment->getMethod()."</p>
+                    <p><strong>Totali:</strong> $$totalprice</p>
+                </div>
+                ";
 
                 }
             }
