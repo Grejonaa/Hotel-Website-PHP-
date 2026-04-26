@@ -154,7 +154,7 @@ class Payment {
 <style>
     body {
     font-family: 'Poppins', sans-serif;
-    background: url("images/bg3.jpeg") no-repeat center center fixed;
+    background: url("../images/bg3.jpeg") no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 20px;
@@ -317,7 +317,7 @@ class Payment {
 
     <div class="left-column">
         <div class="big-room">
-            <img src="images/room5.jpeg" alt="Presidential Suite">
+            <img src="../images/room5.jpeg" alt="Presidential Suite">
             <h2>Presidential Suite</h2>
             <p>Luxury experience for 6 Guests</p>
             <p>$500/night</p>
@@ -327,17 +327,17 @@ class Payment {
     <div class="right-column">
         <div class="rooms-row">
             <div class="room-card">
-                <img src="images/room1.avif" alt="Classic Room">
+                <img src="../images/room1.avif" alt="Classic Room">
                 <h3>Classic Room</h3>
                 <p>2 Guests - $120/night</p>
             </div>
             <div class="room-card">
-                <img src="images/room2.jpeg" alt="Family Room">
+                <img src="../images/room2.jpeg" alt="Family Room">
                 <h3>Family Room</h3>
                 <p>4 Guests - $180/night</p>
             </div>
             <div class="room-card">
-                <img src="images/room3.jpeg" alt="Grand Deluxe">
+                <img src="../images/room3.jpeg" alt="Grand Deluxe">
                 <h3>Grand Deluxe</h3>
                 <p>4 Guests - $240/night</p>
             </div>
@@ -345,17 +345,17 @@ class Payment {
 
         <div class="rooms-row">
             <div class="room-card">
-                <img src="images/room4.jpeg" alt="Twin Room">
+                <img src="../images/room4.jpeg" alt="Twin Room">
                 <h3>Twin Room</h3>
                 <p>2 Guests - $150/night</p>
             </div>
             <div class="room-card">
-                <img src="images/room6.jpeg" alt="Superior Room">
+                <img src="../images/room6.jpeg" alt="Superior Room">
                 <h3>Superior Room</h3>
                 <p>3 Guests - $200/night</p>
             </div>
             <div class="room-card">
-                <img src="images/room7.avif" alt="Executive Room">
+                <img src="../images/room7.avif" alt="Executive Room">
                 <h3>Executive Room</h3>
                 <p>2 Guests - $220/night</p>
             </div>
