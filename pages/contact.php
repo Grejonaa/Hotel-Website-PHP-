@@ -1,5 +1,29 @@
 <?php include "../includes/header.php"; ?>
 <?php include "../includes/navbar.php";?>
+$errors = [];
+$successMsg = "";
+
+if (isset($_POST['send'])) {
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+
+$emailRegex = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+
+$phoneRegex = "/^(\+383|0)[4-9][0-9]{7}$/";
+
+if (!preg_match($emailRegex, $email)) {
+$errors[] = "Email-i nuk eshte valid!";
+}
+
+if (!preg_match($phoneRegex, $phone)){
+$errors[] = "Numri i telefonit duhet te jete valid!";
+}
+
+if (empty($errors)) {
+$successMsg = "Mesazhi u dergua me sukses!";
+}
+}
+?>
 
 <div class="contact-container">
     <h2> Contact Us </h2>
@@ -14,7 +38,7 @@
         <p><?php echo $successMsg; ?></p>
         </div>
     <?php endif; ?>
-    
+
     <form action="contact.php" method="POST">
         <div class="contact-group">
             <label for="name"> Full Name: </label>
