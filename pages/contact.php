@@ -1,9 +1,21 @@
 <?php include "../includes/header.php"; ?>
-<?php include "../includes/navbar.php ";?>
+<?php include "../includes/navbar.php";?>
 
-<div class="contact-contaner">
+<div class="contact-container">
     <h2> Contact Us </h2>
-    <form action="send.php" method="POST">
+    <?php if (!empty($errors)): ?>
+    <div style="color: red; margin-bottom: 20px;">
+        <?php foreach ($errors as $error) echo "<p>$error</p>"; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($successMsg): ?>
+    <div style="color: green; margin-bottom: 20px;">
+        <p><?php echo $successMsg; ?></p>
+        </div>
+    <?php endif; ?>
+    
+    <form action="contact.php" method="POST">
         <div class="contact-group">
             <label for="name"> Full Name: </label>
             <input type="text" id="name" name="name" required>
