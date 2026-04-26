@@ -1,5 +1,7 @@
-<?php include "../includes/header.php"; ?>
-<?php include "../includes/navbar.php";?>
+<?php
+ include "../includes/header.php";
+ include "../includes/navbar.php";
+
 $errors = [];
 $successMsg = "";
 
@@ -27,13 +29,15 @@ $successMsg = "Mesazhi u dergua me sukses!";
 
 <div class="contact-container">
     <h2> Contact Us </h2>
+
+
     <?php if (!empty($errors)): ?>
     <div style="color: red; margin-bottom: 20px;">
         <?php foreach ($errors as $error) echo "<p>$error</p>"; ?>
         </div>
     <?php endif; ?>
 
-    <?php if ($successMsg): ?>
+    <?php if (isset($_POST['send']) && $successMsg !=""): ?>
     <div style="color: green; margin-bottom: 20px;">
         <p><?php echo $successMsg; ?></p>
         </div>
