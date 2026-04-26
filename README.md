@@ -8,9 +8,9 @@ Ky projekt ka për qëllim ndërtimin e një aplikacioni web për menaxhimin dhe
 Të dhënat janë të simuluara (dummy data), ndërsa aplikacioni është funksional dhe i navigueshëm.
 
 Si të ekzekutohet projekti
-Instaloni XAMPP / WAMP / Laragon.
-Vendosni projektin në folderin htdocs.
-Startoni Apache server.
+-Instaloni XAMPP / WAMP / Laragon.
+-Vendosni projektin në folderin htdocs.
+-Startoni Apache server.
 
 Hapni browser dhe shkruani:
 
