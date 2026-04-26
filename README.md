@@ -35,7 +35,7 @@ Shembull i përdorimit
   -Sistemi ruan user-in në session
   -Përmbajtja ndryshon sipas rolit
 
-Autorët:
+Antarët:
 -Grejona Gashi
 -Njomza Gashi
 -Melisa Grajcevci
