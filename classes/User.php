@@ -15,11 +15,12 @@ class User {
         return $this->username;
     }
 
-    public function getPassword() {
-        return $this->password;
-    }
-
     public function getRole() {
         return $this->role;
+    }
+
+    // metoda për login
+    public function login($username, $password) {
+        return $this->username === $username && $this->password === $password;
     }
 }
