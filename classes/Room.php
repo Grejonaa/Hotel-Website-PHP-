@@ -1,20 +1,12 @@
 <?php
 
 class Room {
-    private $type;
-    private $pricePerNight;
+    protected $type;
+    protected $pricePerNight;
 
-    public function __construct($type) {
+    public function __construct($type, $pricePerNight) {
         $this->type = $type;
-        $this->setPrice();
-    }
-
-    private function setPrice() {
-        if ($this->type === "economic") {
-            $this->pricePerNight = 50;
-        } else {
-            $this->pricePerNight = 250;
-        }
+        $this->pricePerNight = $pricePerNight;
     }
 
     public function calculateTotal($rooms, $nights) {
@@ -27,5 +19,10 @@ class Room {
 
     public function getPrice() {
         return $this->pricePerNight;
+    }
+
+    // Setter (encapsulation)
+    public function setPrice($price) {
+        $this->pricePerNight = $price;
     }
 }

@@ -710,7 +710,7 @@ footer label{
         grid-template-columns: repeat(1, 1fr);
     }
 }
-/*----ABOUT PAGE (about.php)----*/
+/*----ABOUT PAGE (about.php)----
 
 .about {
     margin-top: 30px;
@@ -929,12 +929,9 @@ footer label{
     .about .about-section {
         flex-direction: column;
     }
+}
 
 
-/*Rooms*/
-   .rooms .container{
-            margin-bottom: 150px;
-    }
 /* CONTACT PAGE */
 .contact {
     background-image: url('../images/bg3.jpeg');
@@ -972,3 +969,52 @@ footer label{
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* LOGIN PAGE */
+.login-container {
+    width: 350px;
+    margin: 120px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #7fc142;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #5a8a2d;
+}
+
+.error-msg {
+    color: red;
+    margin-top: 10px;
+}
+
+/*ROOMS PAGE*/
+ .rooms .container{
+            margin-bottom: 150px;
+        }

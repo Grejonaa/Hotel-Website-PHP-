@@ -3,11 +3,6 @@
         <div class="logo">
             <img src="/Hotel/images/logo.jpeg" alt="">
         </div>
-        <div class="welcome" style="background: rgba(255,255,255,0.08); padding: 8px -10px;
-    border-radius: 10px;
-    backdrop-filter: blur(6px); ">
-              <h2 style="font-size: 22px;margin-left:-100px; margin-top:37px">Welcome <?php echo $_SESSION["user"]; ?></h2>
-        </div>
         <div class="navlinks">
             <ul id="menulist">
                 <li><a href="/Hotel/index.php">Home</a></li>
