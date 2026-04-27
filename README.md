@@ -38,6 +38,9 @@ Shembull i përdorimit
 ## Pamja e aplikacionit
 
 ![Screenshot i aplikacionit](images/login.png)
+![Screenshot i aplikacionit](images/index.png)
+![Screenshot i aplikacionit](images/pamje.png)
+![Screenshot i aplikacionit](images/book.png)
 
 Antarët:
 -Grejona Gashi
