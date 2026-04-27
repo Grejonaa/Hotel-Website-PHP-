@@ -710,7 +710,7 @@ footer label{
         grid-template-columns: repeat(1, 1fr);
     }
 }
-/*----ABOUT PAGE (about.php)----
+/*----ABOUT PAGE (about.php)----*/
 
 .about {
     margin-top: 30px;
@@ -779,14 +779,13 @@ footer label{
 
 .rooms {
     padding: 80px 20px;
-    background: #329ba9dd; 
+    background: white; 
 }
 
 .rooms::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.6);
 }
 
 .rooms * {
@@ -831,7 +830,6 @@ footer label{
 .services {
     padding: 80px 20px;
     background: white;
-    text-align: center;
 }
 
 .service-box {

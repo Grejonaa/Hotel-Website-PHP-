@@ -5,29 +5,31 @@
         <div class="content">
             <div class="owl-carousel owl-theme">
 
+            
             <?php
             $images = ["banner2.jpeg","banner1.webp","banner3.avif","banner4.avif","banner55.avif"];
             foreach($images as $img):
             ?>
-                <div class="item">
-                    <img src="../images/banner2.jpeg" alt="">
-                    <div class="text">
-                        <h1>Spend Your Holiday</h1>
-                        <p>
-                            A Royal Hotel delivers unparalleled luxury, combining elegant accommodations with exceptional service in a grand, sophisticated setting.
-                        </p>
-                        <div class="flex">
-                            <a href='about.php' target='_blank' class="primary-btn">READ MORE</a>
-                            <a href='contact.php' target='_blank' class="secondary-btn">CONTACT US</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="item">
+            <img src="../images/<?php echo $img; ?>" alt="">
+            <div class="text">
+            <h1>Spend Your Holiday</h1>
+            <p>
+                A Royal Hotel delivers unparalleled luxury, combining elegant accommodations with exceptional service in a grand, sophisticated setting.
+            </p>
+            <div class="flex">
+            <a href='about.php' target='_blank' class="primary-btn">READ MORE</a>
+            <a href='contact.php' target='_blank' class="secondary-btn">CONTACT US</a>
+            </div>
+            </div>
+            </div>
             <?php endforeach; ?>
+
+
 
         </div>
     </div>
 </section>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
