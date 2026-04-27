@@ -14,7 +14,7 @@ Si të ekzekutohet projekti
 
 Hapni browser dhe shkruani:
 
-http://localhost/project/pages/index.php
+http://localhost/Hotel/index.php
 
 1. Struktura e aplikacionit
 Aplikacioni përmban më shumë se 4 faqe funksionale:
@@ -34,6 +34,10 @@ Shembull i përdorimit
   -Mund të bëjë login
   -Sistemi ruan user-in në session
   -Përmbajtja ndryshon sipas rolit
+
+## Pamja e aplikacionit
+
+![Screenshot i aplikacionit](images/login.png)
 
 Antarët:
 -Grejona Gashi
