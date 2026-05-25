@@ -1016,3 +1016,53 @@ footer label{
  .rooms .container{
             margin-bottom: 150px;
         }
+
+/*WEATHER API*/
+.weather-container{
+    position: absolute;
+    top: 110px;
+    right: 20px;
+
+    width: 280px;
+    padding: 20px;
+
+    background: linear-gradient(135deg, #07142d, #2a5298);
+    color: white;
+
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+    z-index: 9999;
+}
+.weather-container h2{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.weather-container:hover{
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+.weather-container img{
+    width: 80px;
+    margin: 10px 0;
+}
+
+.weather-container p{
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.weather-container p:first-of-type{
+    font-size: 20px;
+    font-weight: bold;
+}
+@media (max-width: 768px){
+    .weather-container{
+        position: relative;
+        top: auto;
+        right: auto;
+
+        margin: 20px auto;
+        width: 90%;
+    }
+}
