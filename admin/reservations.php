@@ -1,7 +1,6 @@
 <?php
-include "../config/db.php";
+include "../includes/db.php";
 include "../includes/header.php";
-include "../includes/navbar.php";
 include "../auth/auth_check.php";
 
 $sql = "SELECT * FROM projekt ORDER BY created_at DESC";
@@ -31,9 +30,9 @@ $result = $conn->query($sql);
         <tr>
             <td><?php echo $row['id']; ?></td>
             <td><?php echo htmlspecialchars($row['NameSurname']); ?></td>
-            <td><?php echo htmlspecialchars($row['email']); ?></td>
-            <td><?php echo $row['arrival']; ?></td>
-            <td><?php echo $row['departure']; ?></td>
+            <td><?php echo htmlspecialchars($row['Email']); ?></td>
+            <td><?php echo $row['Arrival']; ?></td>
+            <td><?php echo $row['Departure']; ?></td>
             <td><?php echo $row['Adults']; ?></td>
             <td><?php echo $row['Children']; ?></td>
             <td><?php echo $row['Rooms']; ?></td>

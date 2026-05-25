@@ -1,7 +1,6 @@
 <?php
-include "../config/db.php";
+include "../includes/db.php";
 include "../includes/header.php";
-include "../includes/navbar.php";
 include "../auth/auth_check.php";
 
 if (!isset($_GET['id'])) {
