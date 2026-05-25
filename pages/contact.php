@@ -43,11 +43,11 @@ $successMsg = "Mesazhi u dergua me sukses!";
         </div>
     <?php endif; ?>
 
-    <form action="contact.php" method="POST">
+<form action="send.php" method="POST">
         <div class="contact-group">
             <label for="name"> Full Name: </label>
             <input type="text" id="name" name="name" required>
-</div>
+        </div>
 <div class="contact-group">
     <label for="email"> Email Address: </label>
     <input type="email" id="email" name="email" required>
