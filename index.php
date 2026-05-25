@@ -10,6 +10,11 @@ if (!isset($_SESSION["user"])) {
 
 <?php include "includes/header.php"; ?>
 <?php include "includes/navbar.php"; ?>
+<?php if (isset($_SESSION["user"])): ?>
+    <div class="welcome-box">
+    Welcome, <?php echo htmlspecialchars($_SESSION["fullname"]); ?>
+    </div>
+<?php endif; ?>
 
 <!-- HOME PAGE -->
 <?php include "pages/home.php"; ?>

@@ -280,14 +280,4 @@ $(document).ready(function(){
 
 <!-- ROOMS SECTION END -->
 
-
-<!-- NEWSLETTER -->
-<section class="newsletter mtop">
-    <div class="container flex_space">
-        <h1>Subscribe to Our Newsletter</h1>
-        <input type="text" placeholder="Your Email">
-        <input type="button" value="Subscribe">
-    </div>
-</section>
-
 <?php include "../includes/footer.php"; ?>

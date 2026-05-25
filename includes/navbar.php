@@ -22,11 +22,6 @@
                         <span>👤 <?php echo $_SESSION["user"]; ?></span>
                     </li>
 
-                  
-                    <?php if ($_SESSION["role"] === "admin"): ?>
-                        <li><a href="#">Admin Panel</a></li>
-                    <?php endif; ?>
-
                     <li><a href="/Hotel/auth/logout.php">Logout</a></li>
 
                 <?php else: ?>
