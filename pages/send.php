@@ -35,6 +35,7 @@ if(isset($_POST["send"])){
                <p><strong>Email:</strong> {$_POST['email']}</p>
                <p><strong>Phone Number:</strong> {$_POST['phone']}</p>
                <p><strong>Message:</strong><br>{$_POST['message']}</p>";
+   
    $mail->send();
 
    echo "<script>
