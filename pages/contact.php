@@ -1,9 +1,68 @@
 <?php
- include "../includes/header.php";
- include "../includes/navbar.php";
- include "contact_process.php";
+
+include "../includes/header.php";
+include "../includes/navbar.php";
+include "contact_process.php";
+
+$city = "Prishtina";
+$apiKey = "e67981ab806c4190bc6175653262505";
+
+// URL e WeatherAPI
+$url = "http://api.weatherapi.com/v1/current.json?key=$apiKey&q=$city&aqi=no";
+
+// Marrja e te dhenave
+$response = @file_get_contents($url);
+
+// Kontrollon a funksionoi API
+if($response !== false){
+
+    $data = json_decode($response, true);
+
+    $temp = $data['current']['temp_c'];
+    $condition = $data['current']['condition']['text'];
+    $icon = $data['current']['condition']['icon'];
+    $humidity = $data['current']['humidity'];
+
+}else{
+
+    $temp = "";
+    $condition = "";
+    $icon = "";
+    $humidity = "";
+}
+
 ?>
 
+ <div class="weather-container">
+
+    <h2>Current Weather in <?php echo $city; ?></h2>
+
+    <?php if($temp != ""){ ?>
+
+        <img src="https:<?php echo $icon; ?>">
+
+        <p>
+            Temperature:
+            <?php echo $temp; ?> °C
+        </p>
+
+        <p>
+            Weather:
+            <?php echo $condition; ?>
+        </p>
+
+        <p>
+            Humidity:
+            <?php echo $humidity; ?>%
+        </p>
+
+    <?php } else { ?>
+
+        <p>Weather data unavailable.</p>
+
+    <?php } ?>
+
+</div>
 <div class="contact-container">
     <h2> Contact Us </h2>
 
@@ -34,7 +93,7 @@
     <input type="tel" id="phone" name="phone" required>
 </div>
 <div class="contact-group">
-    <label for="message"> Subject: </label>
+    <label for="subject"> Subject: </label>
     <input type="text" id="subject" name="subject" required>
 </div>
 <div class="contact-group">
@@ -47,4 +106,5 @@
 </div>
 </form>
 </div>
+
 <?php include "../includes/footer.php"; ?>
