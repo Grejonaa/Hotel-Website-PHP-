@@ -1,6 +1,6 @@
 
-<?php require_once "booking_process.php"; ?>
-<?php session_start();?>
+<?php require_once "booking_process.php";?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -140,14 +140,14 @@
         </div>
 
         <div class="form-group">
-            <select name="room_type">
-                <option value="Classic">Classic Room - $120</option>
-                <option value="superior">Superior Room- $250</option>
-                <option value="family">Family Room- $180</option>
-                <option value="executive">Executive Room- $220</option>
-                <option value="twin">Twin Room- $150</option>
-                <option value="Grand_Deluxe">Grand Deluxe - $240</option>
-                <option value="Presidential_Suite">Presidential Suite - $500</option>
+            <select name="room_id">
+            <option value="1">Classic Room - $120</option>
+            <option value="2">Superior Room - $250</option>
+            <option value="3">Family Room - $180</option>
+            <option value="4">Executive Room - $220</option>
+            <option value="5">Twin Room - $150</option>
+            <option value="6">Grand Deluxe - $240</option>
+            <option value="7">Presidential Suite - $500</option>
             </select>
         </div>
 

@@ -1,11 +1,13 @@
 <?php
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Mpdf\Mpdf;
 $host = "localhost";
 $username = "root";
 $password = "";
 $dbname = "forma";
 $table = "projekt";
-
 try {
 
     $dsn = "mysql:host=$host;dbname=$dbname";
@@ -13,86 +15,138 @@ try {
     $conn = new PDO($dsn, $username, $password);
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $room_id = isset($_POST['room_id']) ? (int)$_POST['room_id'] : null;
 
-
+    $stmtRoom = $conn->prepare("SELECT room_type, price FROM rooms WHERE id = :id");
+    $stmtRoom->execute([':id' => $room_id]);
+    $room = $stmtRoom->fetch(PDO::FETCH_ASSOC);
+    $room_name = $room['room_type'];
+    $price = $room['price'];
     $sql = "
     INSERT INTO $table
-    (NameSurname, Email, Arrival, Departure, Adults, Children, Rooms, TypeOfRoom, PaymentMethod, TotalPrice)
+    (user_id, room_id, NameSurname, Email, Arrival, Departure, Adults, Children, Rooms, TypeOfRoom, PaymentMethod, TotalPrice)
     
     VALUES
-    (:namesurname, :email, :arrival, :departure, :adults, :children, :rooms, :roomtype, :payment, :total)
+    (:user_id, :room_id, :namesurname, :email, :arrival, :departure, :adults, :children, :rooms, :roomtype, :payment, :total)
     ";
 
     $stmt = $conn->prepare($sql);
 
-    $stmt->execute([
+  $stmt->execute([
+    ':user_id' => $_SESSION['user_id'],  // ose nga auth
+    ':room_id' => $room_id,
+    ':namesurname' => $namesurname,
+    ':email' => $email,
+    ':arrival' => $arrival,
+    ':departure' => $departure,
+    ':adults' => $nrAdults,
+    ':children' => $nrChildren,
+    ':rooms' => $nrRooms,
+    ':roomtype' => $room_name,
+    ':payment' => $payment->getMethod(),
+    ':total' => $totalprice
+]);
 
-        ':namesurname' => $namesurname,
-        ':email' => $email,
-        ':arrival' => $arrival,
-        ':departure' => $departure,
-        ':adults' => $nrAdults,
-        ':children' => $nrChildren,
-        ':rooms' => $nrRooms,
-        ':roomtype' => $room_type,
-        ':payment' => $payment->getMethod(),
-        ':total' => $totalprice
-    ]);
 
 
-    require_once __DIR__ . '/../vendor/autoload.php';
-
-    $mpdf = new \Mpdf\Mpdf();
+    $mpdf = new Mpdf();
 
 
     $stylesheet = "
+body {
+    font-family: DejaVu Sans, Arial;
+    background: #f5f7fb;
+}
 
-        body {
-            font-family: Arial;
-        }
+.invoice-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+}
 
-        h1 {
-            text-align: center;
-        }
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        .booking-container {
-            border: 1px solid #000;
-            padding: 15px;
-            border-radius: 10px;
-        }
+.header h1 {
+    margin: 0;
+    font-size: 26px;
+    color: #2c3e50;
+}
 
-    ";
+.header p {
+    margin: 5px 0;
+    color: #7f8c8d;
+}
 
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.info-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-table td:first-child {
+    font-weight: bold;
+    color: #34495e;
+    width: 40%;
+}
+
+.total {
+    margin-top: 20px;
+    padding: 15px;
+    background: #2ecc71;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 12px;
+    color: #95a5a6;
+}
+";
 
     $data = "
 
-        <h1>Booking Details</h1>
+        <div class='invoice-box'>
 
-        <div class='booking-container'>
+    <div class='header'>
+        <h1>HOTEL INVOICE</h1>
+        <p>Booking Confirmation</p>
+    </div>
 
-            <p><strong>Name:</strong> $namesurname</p>
+    <table class='info-table'>
+        <tr><td>Name</td><td>$namesurname</td></tr>
+        <tr><td>Email</td><td>$email</td></tr>
+        <tr><td>Arrival</td><td>$arrival</td></tr>
+        <tr><td>Departure</td><td>$departure</td></tr>
+        <tr><td>Nights</td><td>$numberOfNights</td></tr>
+        <tr><td>Adults</td><td>$nrAdults</td></tr>
+        <tr><td>Children</td><td>$nrChildren</td></tr>
+        <tr><td>Rooms</td><td>$nrRooms</td></tr>
+        <tr><td>Room Type</td><td>$room_name</td></tr>
+        <tr><td>Payment Method</td><td>".$payment->getMethod()."</td></tr>
+    </table>
 
-            <p><strong>Email:</strong> $email</p>
+    <div class='total'>
+        TOTAL: $$totalprice
+    </div>
 
-            <p><strong>Arrival:</strong> $arrival</p>
+    <div class='footer'>
+        Thank you for choosing our hotel. We wish you a pleasant stay!
+    </div>
 
-            <p><strong>Departure:</strong> $departure</p>
-
-            <p><strong>Adults:</strong> $nrAdults</p>
-
-            <p><strong>Children:</strong> $nrChildren</p>
-
-            <p><strong>Rooms:</strong> $nrRooms</p>
-
-            <p><strong>Room Type:</strong> $room_type</p>
-
-            <p><strong>Payment:</strong> ".$payment->getMethod()."</p>
-
-            <p><strong>Nights:</strong> $numberOfNights</p>
-
-            <p><strong>Total Price:</strong> $$totalprice</p>
-
-        </div>
+    </div>
 
     ";
 
