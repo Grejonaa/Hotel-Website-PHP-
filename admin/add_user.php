@@ -12,8 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role = $_POST['role'];
 
     $stmt = $conn->prepare("
-        INSERT INTO users(fullname,email,password,role)
-        VALUES(?,?,?,?)
+        INSERT INTO users(fullname, email, password, role)
+        VALUES (?, ?, ?, ?)
     ");
 
     $stmt->bind_param(
