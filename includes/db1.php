@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$dbname = "hotel_db";
+$dbname = "forma";
 $username = "root";
 $password = "";
 
