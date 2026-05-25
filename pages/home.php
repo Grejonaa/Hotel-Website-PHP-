@@ -530,11 +530,60 @@
 
 
 <!--Newsletter-->
-    <section class="newsletter mtop">
-         <div class="container flex_space">
-            <h1>Subscribe to Our Newsletter</h1>
-            <input type="text" placeholder="Your Email">
-            <input type="button" value="Subscribe">
-         </div>
-    </section>
+<section class="newsletter mtop">
+    <div class="container flex_space">
+
+        <h1>Subscribe to Our Newsletter</h1>
+
+        <input type="email" id="email" placeholder="Your Email">
+
+        <button style="background-color:darkblue; color: white; border: none; padding: 10px 20px; cursor: pointer;" type="button" onclick="subscribe()">Subscribe</button>
+
+        <p id="msg"></p>
+
+    </div>
+
+
+</section>
+
+    <script>
+        function subscribe() {
+
+    let email = document.getElementById("email").value.trim();
+    let msg = document.getElementById("msg");
+
+    if (email === "") {
+        msg.innerText = "Email is required";
+        msg.style.color = "red";
+        return;
+    }
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "ajax/subscribe.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhr.onload = function () {
+
+        if (this.responseText === "OK") {
+            msg.innerText = "Subscribed successfully";
+            msg.style.color = "green";
+            document.getElementById("email").value = "";
+
+        } else if (this.responseText === "INVALID") {
+            msg.innerText = "Invalid email format";
+            msg.style.color = "orange";
+
+        } else if (this.responseText === "EXISTS") {
+            msg.innerText = "Already subscribed";
+            msg.style.color = "blue";
+
+        } else {
+            msg.innerText = "Error occurred";
+            msg.style.color = "red";
+        }
+    };
+
+    xhr.send("email=" + encodeURIComponent(email));
+}  
+    </script>
 <!--Newsletter-->

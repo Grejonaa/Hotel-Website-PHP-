@@ -1,7 +1,7 @@
 <?php
  include "../includes/header.php";
  include "../includes/navbar.php";
- include "../process/contact_process.php";
+ include "contact_process.php";
 ?>
 
 <div class="contact-container">
