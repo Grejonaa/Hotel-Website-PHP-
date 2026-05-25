@@ -4,7 +4,7 @@ session_start();
 
 require_once "../includes/db.php";
 
-// Security
+
 if(
     !isset($_SESSION["role"]) ||
     $_SESSION["role"] !== "admin"
@@ -13,7 +13,6 @@ if(
     exit();
 }
 
-// Check ID
 if(!isset($_GET["id"])){
 
     header("Location: rooms.php");
@@ -24,7 +23,6 @@ $id = $_GET["id"];
 
 $message = "";
 
-// Get room data
 $stmt = $conn->prepare(
     "SELECT * FROM rooms WHERE id = ?"
 );

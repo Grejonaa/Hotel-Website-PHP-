@@ -14,9 +14,7 @@ include "../includes/db.php";
 include "../includes/header.php";
 
 
-// ======================
 // STATS
-// ======================
 
 $total_rooms = $conn->query("SELECT COUNT(*) AS c FROM rooms")->fetch_assoc()['c'];
 $total_reservations = $conn->query("SELECT COUNT(*) AS c FROM projekt")->fetch_assoc()['c'];
@@ -27,15 +25,15 @@ if ($conn->query("SHOW TABLES LIKE 'users'")->num_rows > 0) {
 }
 
 
-// ======================
+
 // CHART DATA (last 7 reservations by date)
-// ======================
+
 $dates = [];
 $counts = [];
 
 $dataMap = [];
 
-// merr të dhënat nga DB
+
 $sql = "
 SELECT DATE(created_at) as rdate, COUNT(*) as total
 FROM projekt
@@ -49,16 +47,14 @@ while ($row = $result->fetch_assoc()) {
     $dataMap[$row['rdate']] = $row['total'];
 }
 
-// krijo 7 ditët gjithmonë
+// krijimi i 7 diteve te fundit dhe marrja e numrit te rezervimeve per secilen date
 for ($i = 6; $i >= 0; $i--) {
     $date = date('Y-m-d', strtotime("-$i days"));
     $dates[] = $date;
     $counts[] = isset($dataMap[$date]) ? $dataMap[$date] : 0;
 }
 
-// ======================
 // LAST RESERVATIONS
-// ======================
 
 $latest = $conn->query("SELECT * FROM projekt ORDER BY id DESC LIMIT 5");
 

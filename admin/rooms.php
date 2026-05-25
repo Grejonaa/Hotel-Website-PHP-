@@ -4,7 +4,7 @@ session_start();
 
 require_once "../includes/db.php";
 
-// SECURITY
+
 if(
     !isset($_SESSION["role"]) ||
     $_SESSION["role"] !== "admin"
@@ -13,7 +13,7 @@ if(
     exit();
 }
 
-// PREPARED STATEMENT
+
 $stmt = $conn->prepare(
     "SELECT * FROM rooms"
 );
