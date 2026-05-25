@@ -6,7 +6,7 @@ if (
     !isset($_SESSION["role"]) ||
     $_SESSION["role"] !== "admin"
 ) {
-    header("Location: ../pages/login.php");
+    header("Location: ../auth/login.php");
     exit();
 }
 
