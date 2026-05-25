@@ -3,18 +3,16 @@ include "../includes/db.php";
 include "../auth/auth_check.php";
 
 if (!isset($_GET['id'])) {
-    die("ID missing");
+    header("Location: reservations.php");
+    exit();
 }
 
 $id = intval($_GET['id']);
 
 $stmt = $conn->prepare("DELETE FROM projekt WHERE id=?");
 $stmt->bind_param("i", $id);
+$stmt->execute();
 
-if ($stmt->execute()) {
-    header("Location: reservations.php");
-    exit();
-} else {
-    echo "Error deleting reservation.";
-}
+header("Location: reservations.php");
+exit();
 ?>
