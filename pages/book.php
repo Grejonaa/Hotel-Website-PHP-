@@ -1,6 +1,6 @@
 <?php
 require_once "../auth/auth_check.php";
-
+require_once "../classes/Room.php";
 $message = "";
 $today = date("Y-m-d");
 
