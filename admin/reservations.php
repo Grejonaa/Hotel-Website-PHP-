@@ -1,56 +1,74 @@
+<link rel="stylesheet" href="admin.css">
+
 <?php
 include "../includes/db.php";
-include "../includes/header.php";
 include "../auth/auth_check.php";
 
-$sql = "SELECT * FROM projekt ORDER BY created_at DESC";
+$sql = "SELECT * FROM projekt ORDER BY id DESC";
 $result = $conn->query($sql);
 ?>
 
-<div class="container" style="margin-top:50px;">
+<h1 class="page-title">Manage Reservations</h1>
 
-    <h2>Manage Reservations</h2>
+<table>
 
-    <table border="1" width="100%" cellpadding="10">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Arrival</th>
-            <th>Departure</th>
-            <th>Adults</th>
-            <th>Children</th>
-            <th>Rooms</th>
-            <th>Room Type</th>
-            <th>Actions</th>
-        </tr>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Arrival</th>
+        <th>Departure</th>
+        <th>Adults</th>
+        <th>Children</th>
+        <th>Rooms</th>
+        <th>Room Type</th>
+        <th>Actions</th>
+    </tr>
 
-        <?php while($row = $result->fetch_assoc()) { ?>
+    <?php while($row = $result->fetch_assoc()) { ?>
 
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo htmlspecialchars($row['NameSurname']); ?></td>
-            <td><?php echo htmlspecialchars($row['Email']); ?></td>
-            <td><?php echo $row['Arrival']; ?></td>
-            <td><?php echo $row['Departure']; ?></td>
-            <td><?php echo $row['Adults']; ?></td>
-            <td><?php echo $row['Children']; ?></td>
-            <td><?php echo $row['Rooms']; ?></td>
-            <td><?php echo $row['TypeOfRoom']; ?></td>
+    <tr>
 
-            <td>
-                <a href="view-reservation.php?id=<?php echo $row['id']; ?>">View</a> |
-                <a href="edit-reservation.php?id=<?php echo $row['id']; ?>">Edit</a> |
-                <a href="delete-reservation.php?id=<?php echo $row['id']; ?>"
-                   onclick="return confirm('A je i sigurt?')">
-                   Delete
-                </a>
-            </td>
-        </tr>
+        <td><?= $row['id']; ?></td>
 
-        <?php } ?>
+        <td><?= htmlspecialchars($row['NameSurname']); ?></td>
 
-    </table>
-</div>
+        <td><?= htmlspecialchars($row['Email']); ?></td>
 
-<?php include "../includes/footer.php"; ?>
+        <td><?= $row['Arrival']; ?></td>
+
+        <td><?= $row['Departure']; ?></td>
+
+        <td><?= $row['Adults']; ?></td>
+
+        <td><?= $row['Children']; ?></td>
+
+        <td><?= $row['Rooms']; ?></td>
+
+        <td><?= $row['TypeOfRoom']; ?></td>
+
+        <td>
+
+            <a class="action-btn"
+               href="view-reservation.php?id=<?= $row['id']; ?>">
+               View
+            </a>
+
+            <a class="action-btn edit-btn"
+               href="edit-reservation.php?id=<?= $row['id']; ?>">
+               Edit
+            </a>
+
+            <a class="action-btn delete-btn"
+               href="delete-reservation.php?id=<?= $row['id']; ?>"
+               onclick="return confirm('A jeni i sigurt?')">
+               Delete
+            </a>
+
+        </td>
+
+    </tr>
+
+    <?php } ?>
+
+</table>
