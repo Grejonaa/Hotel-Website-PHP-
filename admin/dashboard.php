@@ -68,6 +68,13 @@ $latest = $conn->query("SELECT * FROM projekt ORDER BY id DESC LIMIT 5");
 
     <h3>Welcome, <?php echo htmlspecialchars($_SESSION["fullname"]); ?></h3>
 
+        <!-- ====================== --> <!-- 🔗 QUICK LINKS --> <!-- ====================== --> 
+    <div class="dashboard-links">
+    <a href="rooms.php">Manage Rooms</a> 
+    <a href="reservations.php">Manage Reservations</a>
+    <a href="users.php">Manage Users</a> 
+    </div> 
+
     <!-- ================= STATS ================= -->
     <div class="stats-grid">
 
@@ -116,6 +123,7 @@ $latest = $conn->query("SELECT * FROM projekt ORDER BY id DESC LIMIT 5");
         <?php } ?>
     </table>
 
+
 </div>
 
 
@@ -146,5 +154,8 @@ new Chart(ctx, {
     }
 });
 </script>
+
+
+
 
 <?php include "../includes/footer.php"; ?>
