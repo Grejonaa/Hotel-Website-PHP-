@@ -1,12 +1,19 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require_once "../vendor/autoload.php";
 
 if(isset($_POST["send"])){
+   $name = htmlspecialchars($_POST['name']);
+   $email = htmlspecialchars($_POST['email']);
+   $phone = htmlspecialchars($_POST['phone']);
+   $subject = htmlspecialchars($_POST['subject']);
+   $message = htmlspecialchars($_POST['message']);
+
+   try {
+
    $mail = new PHPMailer(true);
 
    $mail->isSMTP();
@@ -32,8 +39,14 @@ if(isset($_POST["send"])){
 
    echo "<script>
          alert('Sent Successfully');
-         document.location.href = 'index.php';
+         document.location.href = '../pages/contact.php';
          </script>";
 
+} catch (Exception $e) {
+echo "<script>
+    alert('Message could not be sent');
+    document.location.href = '../pages/contact.php';
+    </script>";
+    }
 }
 ?>
