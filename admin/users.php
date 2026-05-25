@@ -5,7 +5,11 @@ include "../includes/db.php";
 include "../auth/auth_check.php";
 
 $sql = "SELECT * FROM users ORDER BY id DESC";
-$result = $conn->query($sql);
+
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <h1 class="page-title">Manage Users</h1>
