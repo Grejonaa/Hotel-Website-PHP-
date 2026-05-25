@@ -2,7 +2,7 @@
 <footer>
     <div class="container grid">
         <div class="box">
-            <img src="images/logonobg.png" alt="">
+            <img src="../images/logonobg.png" alt="">
             <p>Experience unparalleled luxury and timeless elegance at Royal Hotel, where exceptional 
                 service and world-class amenities create unforgettable stays.
             </p>
