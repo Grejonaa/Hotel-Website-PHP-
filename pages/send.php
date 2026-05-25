@@ -19,15 +19,15 @@ if(isset($_POST["send"])){
    $mail->isSMTP();
    $mail->Host = 'smtp.gmail.com';
    $mail->SMTPAuth = true;
-   $mail->Username = 'grejonagashi9@gmail.com';
+   $mail->Username = 'grejonagashi19@gmail.com';
    $mail->Password = 'qzxsjsseiqifclel';
    $mail->SMTPSecure = 'ssl';
    $mail->Port = 465;
 
-   $mail->setFrom('grejonagashi9@gmail.com', 'Hotel Contact Form');
+   $mail->setFrom('grejonagashi19@gmail.com', 'Hotel Contact Form');
    $mail->addReplyTo($_POST['email'], $_POST['name']);
 
-   $mail->addAddress('grejonagashi9@gmail.com');
+   $mail->addAddress('grejonagashi19@gmail.com');
    $mail->isHTML(true);
    $mail->Subject = $_POST["subject"];
 
