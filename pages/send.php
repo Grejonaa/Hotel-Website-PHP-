@@ -39,13 +39,13 @@ if(isset($_POST["send"])){
 
    echo "<script>
          alert('Sent Successfully');
-         document.location.href = '../pages/contact.php';
+         document.location.href = 'contact.php';
          </script>";
 
 } catch (Exception $e) {
 echo "<script>
     alert('Message could not be sent');
-    document.location.href = '../pages/contact.php';
+    document.location.href = 'contact.php';
     </script>";
     }
 }
