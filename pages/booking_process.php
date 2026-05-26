@@ -27,10 +27,10 @@ class Payment {
 
 $capacities = [
     "Classic" => 2,
-    "superior" => 3,
-    "family" => 4,
-    "executive" => 2,
-    "twin" => 2,
+    "Superior" => 3,
+    "Family" => 4,
+    "Executive" => 2,
+    "Twin" => 2,
     "Grand_Deluxe" => 4,
     "Presidential_Suite" => 6
 ];
