@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 ) {
 
                     // Sessions
-                    $_SESSION["user_id"] = $user["id"];
+                    $_SESSION["user"] = $user["id"];
                     $_SESSION["fullname"] = $user["fullname"];
                     $_SESSION["role"] = $user["role"];
 

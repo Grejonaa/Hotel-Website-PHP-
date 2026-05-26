@@ -6,10 +6,10 @@ include "../auth/auth_check.php";
 
 $sql = "SELECT * FROM users ORDER BY id DESC";
 
-$stmt = $conn->prepare($sql);
+$stmt = $conn->prepare("SELECT * FROM users ORDER BY id DESC");
 $stmt->execute();
 
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$result = $stmt->get_result();
 ?>
 
 <h1 class="page-title">Manage Users</h1>

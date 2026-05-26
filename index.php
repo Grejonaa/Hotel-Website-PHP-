@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // Kontrollo nëse user është i loguar
 if (!isset($_SESSION["user"])) {
     header("Location: auth/login.php");
