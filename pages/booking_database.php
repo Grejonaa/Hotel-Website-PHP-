@@ -33,7 +33,7 @@ try {
     $stmt = $conn->prepare($sql);
 
   $stmt->execute([
-    ':user_id' => $_SESSION['user_id'],  // ose nga auth
+    ':user_id' => $_SESSION['user'],  // ose nga auth
     ':room_id' => $room_id,
     ':namesurname' => $namesurname,
     ':email' => $email,
